@@ -22,7 +22,7 @@ public class shortestPath_Dijkstra {
     static int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S)
     {
         //constructing min-heap
-       PriorityQueue<Pair_Dij> pq = new PriorityQueue<Pair_Dij>((x,y) -> x.first - y.first);
+    //    PriorityQueue<Pair_Dij> pq = new PriorityQueue<Pair_Dij>((x,y) -> x.first - y.first);
       pq.add(new Pair_Dij(0, S));
        
        int[] dist = new int[V];
