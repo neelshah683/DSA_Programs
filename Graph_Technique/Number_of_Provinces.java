@@ -82,3 +82,67 @@ public class Number_of_Provinces {
         }
     }
 }
+//Using Disjoint Set - Union Find
+/*
+ class IniConfiguration2 {
+    List<Integer> size = new ArrayList<>();
+    List<Integer> parent = new ArrayList<>();
+    public IniConfiguration2(int n)
+    {
+        for(int i=0; i<=n ;i++)
+        {
+            size.add(1);
+            parent.add(i);
+        }
+    }
+    public int findUlParent(int node)
+    {
+        if(node == parent.get(node))
+            return node;
+        int val = findUlParent(parent.get(node));
+        parent.set(node, val);
+        return parent.get(node);    
+    }
+    public void unionBySize(int u, int v)
+    {
+        int pu = findUlParent(u);
+        int pv = findUlParent(v);
+        if(pu == pv)
+            return ;
+        if(size.get(pu) < size.get(pv))
+        {
+            parent.set(pu, pv);
+            size.set(pv, size.get(pu) + size.get(pv));
+        }
+        else
+        {
+            parent.set(pv, pu);
+            size.set(pu, size.get(pu) + size.get(pv));
+        }
+    }
+}
+
+class Solution {
+    public int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        IniConfiguration2 inConfig = new IniConfiguration2(n);
+        for(int i=0; i<n; i++)
+        {
+            for(int j=0; j<n; j++)
+            {
+                if(isConnected[i][j] == 1)
+                {
+                    inConfig.unionBySize(i,j);
+                }
+            }
+        }
+        int cnt = 0;
+        for(int i=0; i<n; i++)
+        {
+            if(inConfig.parent.get(i) == i)
+                ++cnt;
+        }
+        return cnt;
+    }
+}
+ */

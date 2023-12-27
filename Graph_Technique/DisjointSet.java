@@ -25,8 +25,8 @@ class IniConfiguration{
     }
     public void unionByRank(int u, int v)
     {
-        int pu = parent.get(u);
-        int pv = parent.get(v);
+        int pu = findUlParent(u);
+        int pv = findUlParent(v);
         if(rank.get(pu) < rank.get(pv))
             parent.set(pu, pv);
         else if(rank.get(pu) > rank.get(pv))
@@ -60,8 +60,8 @@ class IniConfiguration2{
     }
     public void unionBySize(int u, int v)
     {
-        int pu = parent.get(u);
-        int pv = parent.get(v);
+        int pu = findUlParent(u);
+        int pv = findUlParent(v);
         if(pu == pv)
             return ;
         if(size.get(pu) < size.get(pv))
@@ -100,7 +100,7 @@ public class DisjointSet {
 
         System.out.println(in.size);
         System.out.println(in.parent);
-
+        
     }
 
 }
