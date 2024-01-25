@@ -6,23 +6,17 @@ public class maxProductSubArray {
         System.out.println(maxProduct(nums));
     }
     public static int maxProduct(int[] nums) {
-        int n = nums.length, prod = nums[0], maxi = nums[0];
-        for(int i=1; i<n; i++)
+        int n = nums.length;
+        int prod = 1, suff = 1, maxi = Integer.MIN_VALUE;
+        for(int i=0; i<n; i++)
         {
             if(prod == 0)
-                prod = nums[i];
-            else    
-                prod *= nums[i];
-
-            if(prod > maxi)
-            {
-                maxi = prod;
-            }    
-            else
-            {
-                prod = 0;
-
-            }
+                prod = 1;
+            if(suff == 0)   
+                suff = 1;
+            prod *= nums[i];
+            suff *= nums[n-i-1];
+            maxi = Math.max(maxi, Math.max(prod, suff));
         }
         return maxi;
     }
