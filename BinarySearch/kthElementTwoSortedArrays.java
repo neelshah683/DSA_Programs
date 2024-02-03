@@ -5,7 +5,7 @@ public class kthElementTwoSortedArrays {
     public static void main(String[] args) {
         int[] nums1 = {2, 4};
         int[] nums2 = {1, 3, 4};
-        int k = 3;
+        int k = 2;
         System.out.println(kthElement(nums1, nums2, 2, 3, k));    
     }
     public static int kthElement( int arr1[], int arr2[], int n, int m, int k) {
