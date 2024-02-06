@@ -1,23 +1,38 @@
 package Strings;
 
+import java.util.Arrays;
+
 public class rotateString {
     public static void main(String[] args) {
         String s1 = "bbbacddceeb";
         String s2 = "ceebbbbacdd";
-        System.out.println(rotateString(s1, s2));
+        System.out.println(rotateString1(s1, s2));
     }
+    //1st Approach
+    public static boolean rotateString1(String s, String goal)
+    {
+        if(s.length() != goal.length()) return false;
+        return (s + s).contains(goal) ? true : false;
+    }  
+    //2nd Approach | Intuitive 
     public static boolean rotateString(String s, String goal) {
-        int len = s.length(), point2 = goal.indexOf(s.charAt(0));
-        for(int point1 = 0; point1 < len; point1++)
+        if(s.length() != goal.length()) return false;
+        int len = s.length();
+        for(int i=0; i<len; i++)
         {
-            if(s.charAt(point1) != goal.charAt(point2))
-                 return false;
-            if(point2 == len-1)
-                point2 %= (len - 1);
-            else
-                point2++;
-            //  point2 = (point2 == len-1) ? point2 % (len - 1) : point2++;
+            if(chkRotation(s, goal, i))
+                 return true;
         }
-        return true;
+        return false;      
+     }
+     public static boolean chkRotation(String s1, String s2, int rotationCount)
+     {
+         int len = s1.length();
+         for(int i=0; i<len; i++)
+         {
+             if(s1.charAt(i) != s2.charAt((i + rotationCount) % len))
+                 return false;
+         }
+         return true;
      }
 }
