@@ -4,7 +4,7 @@ import java.util.Stack;
 public class nextGreaterElement_latest {
     
     public static void main(String[] args) {
-        int[] nums1 ={1, 4, 3, 2, 2, 1, 0};
+        int[] nums1 ={1, 4, 3, 2, 2, 1, 3};
         System.out.println(Arrays.toString(nextMax(nums1)));
     }
     public static int[] nextMax(int[] nums){
