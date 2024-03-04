@@ -1,4 +1,4 @@
-package Heap.Queue;
+package Heap;
 
 public class minHeapImplementation {
     

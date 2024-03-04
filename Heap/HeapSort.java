@@ -1,4 +1,4 @@
-package Heap.Queue;
+package Heap;
 
 import java.util.Arrays;
 
