@@ -12,7 +12,7 @@ public class topKFrequentElements {
         int k = 2;
         System.out.println(topKFrequent1(nums, k));
     }
-    //TC: O(N) SC: O(k)
+    //TC: O(N) SC: O(N + K)
      public static int[] topKFrequent1(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
         List<Integer>[] freq = new List[nums.length + 1];
