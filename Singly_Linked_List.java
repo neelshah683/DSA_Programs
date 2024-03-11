@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Singly_Linked_List {
     
     Node head;
@@ -103,9 +106,19 @@ public class Singly_Linked_List {
     {
         return size;
     }
-
+    public Node reverseListRecursive(Node head) {
+        if(head == null || head.next == null)
+            return head;
+        
+        Node newHead = reverseListRecursive(head.next);
+        Node front = head.next;
+        front.next = head;
+        head.next = null;
+        return newHead;
+    }
     public void reverseList(){
         
+        //Iterative Version
         Node prev = null, next = null, curr = head;
 
         if(head==null)
@@ -199,7 +212,23 @@ public class Singly_Linked_List {
         }
         System.out.print("NULL");
     }
+    public void printListReverse(Node head)
+    {
+        if(head == null)
+        {
+            System.out.println("List is Empty");
+            return ;
+        }
 
+        Node temp = head;
+        
+        while(temp!=null)
+        {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.print("NULL");
+    }
     public void get_NthNode(int index)
     {
         if(head==null && index == 0)
@@ -240,6 +269,54 @@ public class Singly_Linked_List {
         }
         System.out.println("Value at Nth Position from End: "+temp.data);
     }
+    public boolean hasCycle(Node head) {
+    //TC: O(N) SC:O(N) --->Brute Force Solution
+    //     if(head == null)
+    //         return false;
+
+    //    List<Node> list = new ArrayList<>();
+    //    Node temp = head;
+
+    //     while(temp.next != null){
+    //         if(!list.contains(temp))
+    //             list.add(temp);
+    //         else
+    //             return true;
+    //         temp = temp.next;
+    //     }
+
+    //TC: O(N) //SC: O(1) -->Optimized Solution Tortoise & Hair Algorithm [Two Pointers]
+            if(head == null)
+            return false;
+
+        Node fast = head, slow = head;
+        while(fast != null && fast.next != null){
+        slow = slow.next;
+        fast = fast.next.next;
+        if(slow == fast) return true;
+        }
+        return false;
+    }
+    public Node detectCycleStartingPoint(Node head) {
+        if(head == null)
+           return head;
+
+       Node fast = head, slow = head;
+
+       while(fast != null && fast.next != null){
+           slow = slow.next;
+           fast = fast.next.next;
+           if(slow == fast){
+               slow = head;
+               while(slow != fast){
+                   slow = slow.next;
+                   fast = fast.next;
+               }
+               return fast;
+           }
+       }
+       return null;
+   }
     public static void main(String[] args) {
         
         Singly_Linked_List sl = new Singly_Linked_List();
@@ -273,9 +350,18 @@ public class Singly_Linked_List {
         System.out.println("\nBefore Reverse:-> ");
         sl.printList();
         
-        sl.reverseList();
-
-        System.out.println("\nAfter Reverse:-> ");
+        // sl.reverseList(); --->Iterative Version
         sl.printList();
+
+        Node newHead = sl.reverseListRecursive(sl.head);
+        System.out.println("\nAfter Reverse:-> ");
+
+        sl.printListReverse(newHead);
+
+        System.out.println();
+
+        sl.hasCycle(newHead);
+
+        sl.detectCycleStartingPoint(newHead);
     }
 }
