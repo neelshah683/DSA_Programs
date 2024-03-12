@@ -317,6 +317,45 @@ public class Singly_Linked_List {
        }
        return null;
    }
+   public boolean isPalindrome(Node head) {
+    if(head == null || head.next == null) return true;
+
+    Node slow = head, fast = head;
+
+    while(fast.next != null && fast.next.next != null){
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    Node newHead = reverseListRecursive(slow.next);
+
+    Node first = head, second = newHead;
+    
+    while(second != null){
+        if(first.data != second.data){
+            reverseListRecursive(newHead);
+            return false;
+        } 
+        first = first.next;
+        second = second.next;
+    }
+    reverseListRecursive(newHead);
+    return true;
+}
+public Node oddEvenList(Node head) {
+    if(head == null || head.next == null || head.next.next == null)
+        return head;
+    
+        Node odd = head, even = head.next, evenHead = head.next;
+
+    while(even != null && even.next != null){
+        odd.next = odd.next.next;
+        even.next = even.next.next;
+        odd = odd.next;
+        even = even.next;
+    }
+    odd.next = evenHead;
+    return head;
+}
     public static void main(String[] args) {
         
         Singly_Linked_List sl = new Singly_Linked_List();
@@ -363,5 +402,9 @@ public class Singly_Linked_List {
         sl.hasCycle(newHead);
 
         sl.detectCycleStartingPoint(newHead);
+
+        System.out.println("Is Palindrome: "+sl.isPalindrome(newHead));
+
+        sl.oddEvenList(newHead);
     }
 }
