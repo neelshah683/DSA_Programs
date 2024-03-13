@@ -255,6 +255,7 @@ public class Singly_Linked_List {
 
     public void get_NthNode_END(int N)
     {
+        //BRUTE FORCE SOLUTION
         if(head == null && N == 0)
         {
             System.out.println("List is Empty:");
@@ -268,6 +269,22 @@ public class Singly_Linked_List {
             temp = temp.next;
         }
         System.out.println("Value at Nth Position from End: "+temp.data);
+
+        //Optimized Solution
+        // if(head == null) return head;
+
+        // ListNode fast = head, slow = head;
+
+        // for(int index = 1; index <= n; index++) fast = fast.next;
+
+        // if(fast == null) return head.next;
+
+        // while(fast.next != null){
+        //     fast = fast.next;
+        //     slow = slow.next;
+        // }
+        // slow.next = slow.next.next;
+        // return head;
     }
     public boolean hasCycle(Node head) {
     //TC: O(N) SC:O(N) --->Brute Force Solution
@@ -356,6 +373,120 @@ public Node oddEvenList(Node head) {
     odd.next = evenHead;
     return head;
 }
+    public Node deleteMiddle(Node head) {
+        if(head == null || head.next == null)
+            return null;
+        
+            Node fast = head, slow = head;
+        int flg = 1;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            if(flg == 0)
+                slow = slow.next;
+            flg = 0;
+        }
+        slow.next = slow.next.next;
+        return head;
+    }
+    // for sorting a linkedlist using ms ---> Merge Sort TC: O(NlogN) SC: O(Log N)
+    public Node sortList(Node head) {
+        if(head == null || head.next == null) return head;
+
+        Node middle = findMiddle(head);
+        Node left = head;
+        Node right = middle.next;
+
+        middle.next = null;
+
+        Node leftPart = sortList(left);
+        Node rightPart = sortList(right);
+
+        return mergeList(leftPart, rightPart);
+
+    }
+    public Node mergeList(Node head1, Node head2){
+        Node dummyNode = new Node(-1);
+        Node temp = dummyNode;
+        while(head1 != null && head2 != null){
+            if(head1.data < head2.data){
+                temp.next = head1;
+                temp = head1;
+                head1 = head1.next;
+            }
+            else{
+                temp.next = head2;
+                temp = head2;
+                head2 = head2.next;
+            }
+        }
+        if(head1 == null)   temp.next = head2;
+        else    temp.next = head1;
+
+        return dummyNode.next;
+    }
+    public Node findMiddle(Node head){
+        Node fast = head.next;
+        Node slow = head;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+    //ending of sort linkedlist
+
+    //TC: O(N) SC: O(1)
+    public  Node sortListofZero_One_Two(Node head) {
+        if(head == null || head.next == null) return head;
+
+        Node temp = head;
+
+        Node dummyNodeZero = new Node(-1);
+        Node zero = dummyNodeZero;
+
+        Node dummyNodeOne = new Node(-1);
+        Node one = dummyNodeOne;
+        
+        Node dummyNodeTwo = new Node(-1);
+        Node two = dummyNodeTwo;
+
+        while(temp != null){
+            if(temp.data == 0){
+                zero.next = temp;
+                zero = temp;
+            }
+            if(temp.data == 1){
+                one.next = temp;
+                one = temp;
+            }
+            if(temp.data == 2){
+                two.next = temp;
+                two = temp;
+            }
+            temp = temp.next;
+        }
+        zero.next = (dummyNodeOne.next != null) ? dummyNodeOne.next : dummyNodeTwo.next;
+        one.next = dummyNodeTwo.next;
+        two.next = null;
+
+        return dummyNodeZero.next;
+    }
+    //find intersection node in two LinkedLists
+    //TC: O(N) SC: O(1)
+    public Node getIntersectionNode(Node headA, Node headB) {
+        if(headA == null || headB == null) return null;
+
+        Node t1 = headA, t2 = headB;
+
+        while(t1 != null && t2 != null){
+            if(t1 == t2) return t1;
+            t1 = t1.next;
+            t2 = t2.next;
+            if(t1 == null && t2 != null) t1 = headB;
+            if(t2 == null && t1 != null) t2 = headA;
+        }
+        return null;
+    }
     public static void main(String[] args) {
         
         Singly_Linked_List sl = new Singly_Linked_List();
