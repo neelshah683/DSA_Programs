@@ -487,6 +487,82 @@ public Node oddEvenList(Node head) {
         }
         return null;
     }
+    //For adding 1 to LL TC: O(N) SC: O(N)
+    public Node addOne(Node head) {
+		int carry = helper(head);
+		if(carry == 1){
+            Node newNode = new Node(1);
+			newNode.next = head;
+			head = newNode;
+		}
+		return head;
+	}
+    //For adding 1 to LL
+	public int helper(Node temp){
+		if(temp == null) return 1;
+
+		int carry = helper(temp.next);
+
+		temp.data += carry;
+
+		if(temp.data < 10) return 0;
+
+		temp.data = 0;
+
+		return 1;
+	}
+    //TC: O(max(l1, l2)) SC: O(1) ---> Add two numbers in one LL
+    public Node addTwoNumbers(Node l1, Node l2) {
+    
+        Node t1 = l1, t2 = l2;
+        Node dummyNode = new Node(-1);
+        Node temp = dummyNode;
+        int carry = 0;
+        while(t1 != null || t2 != null){
+          int sum = (t1 != null ? t1.data : 0) + (t2 != null ? t2.data : 0) + carry;
+
+          Node newNode = new Node((sum < 10) ? sum : (sum % 10));
+
+            carry = (sum >= 10) ? 1 : 0;
+
+            temp.next = newNode;
+            temp = newNode;
+
+            t1 = (t1 != null) ? t1.next : null;
+            t2 = (t2 != null) ? t2.next : null;
+        }
+        if(carry == 1){
+            Node newNode = new Node(1);
+            temp.next = newNode;
+            temp = newNode;
+        }
+        return dummyNode.next;
+    }
+    //delete duplicates from sorted lists----> TC: O(N) | SC: O(1)
+    public Node deleteDuplicates(Node head) {
+        if(head == null || head.next == null) return head;
+
+        Node temp = head;
+        Node dummyNode = new Node(-1);
+        dummyNode.next = head;
+        Node prev = dummyNode;
+        while(temp != null){
+            Node nextNode = temp.next;
+
+            while(nextNode != null && nextNode.data == temp.data) 
+                nextNode = nextNode.next;
+
+            if(prev.next.next == nextNode)
+                prev = prev.next;
+            else{
+                    prev.next = nextNode;
+                    temp = nextNode;
+                    continue;
+                }
+            temp = temp.next;
+        }
+        return dummyNode.next;
+    }
     public static void main(String[] args) {
         
         Singly_Linked_List sl = new Singly_Linked_List();

@@ -160,6 +160,27 @@ public class Doubly_Linked_List {
         }
         System.out.print("Null");
     }
+    //delete all occurrences ---- TC: O(N) | SC: O(1)
+    public  Node deleteAllOccurrences(Node head, int k) {
+        if(head == null) return null;
+        if(head.next == null && head.data == k) return head.next;
+        Node temp = head;
+
+        while(temp != null){
+            if(temp.data == k){
+                if(temp == head){
+                    head = head.next;
+                }
+                else{
+                    Node prevNode = temp.prev, nextNode = temp.next;
+                    if(nextNode != null) nextNode.prev = prevNode;
+                    prevNode.next = nextNode;
+                }
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
     public static void main(String[] args) {
         
         Doubly_Linked_List dl = new Doubly_Linked_List();
