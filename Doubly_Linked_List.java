@@ -181,6 +181,20 @@ public class Doubly_Linked_List {
         }
         return head;
     }
+    //remove duplicates from sorted doubly linkedlist
+    public Node removeDuplicates(Node head){
+        if(head == null || head.next == null) return head;
+
+        Node temp = head;
+        while(temp != null){
+            Node nextNode = temp.next;
+            while(nextNode != null && nextNode.data == temp.data) nextNode = nextNode.next;
+            temp.next = nextNode;
+            if(nextNode != null) nextNode.prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
     public static void main(String[] args) {
         
         Doubly_Linked_List dl = new Doubly_Linked_List();
