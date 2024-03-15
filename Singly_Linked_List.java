@@ -563,6 +563,77 @@ public Node oddEvenList(Node head) {
         }
         return dummyNode.next;
     }
+    //Reverse Nodes in K Group Size TC: O(N) | SC: O(1)
+    public Node getKGroup(Node head, int k){
+        Node kthNode = head;
+        k -= 1;
+        while(kthNode != null && k > 0){
+            kthNode = kthNode.next;
+            k--;
+        }
+        return kthNode;
+    }
+    public Node reverseLL(Node head){
+        Node temp = head;
+        Node prev = null;
+        while(temp != null){
+            Node nextNode = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = nextNode;
+        }
+        return prev;
+    }
+    public Node reverseKGroup(Node head, int k) {
+        if(head == null || (head.next == null && k == 1)) return head;
+
+        Node temp = head, prev = null;
+        while(temp != null){
+
+            Node kthNode = getKGroup(temp, k);
+
+            if(kthNode == null){
+                prev.next = temp;
+                break;
+            }
+            Node nextNode = kthNode.next;
+            kthNode.next = null;
+
+            Node newHead = reverseLL(temp);
+
+            if(temp == head)
+                head = newHead;
+            else
+                prev.next = newHead;
+
+            prev = temp;
+            temp = nextNode;
+        }
+        return head;
+    }
+    //RotateLL---> TC: O(N) | SC: O(1)
+    public Node rotateRight(Node head, int k) {
+        if(head == null) return head;
+        Node tail = head;
+        int cntLen = 1;
+        while(tail.next != null){
+            tail = tail.next;
+            cntLen++;
+        }
+        if(k % cntLen == 0) return head;
+
+        Node temp = head;
+        int indx = 1, newK = k % cntLen;
+        while(temp != null && indx < (cntLen - newK)){
+            temp = temp.next;
+            indx++;
+        }
+        tail.next = head;
+        head = temp.next;
+        temp.next = null;
+
+        return head;
+    }
     public static void main(String[] args) {
         
         Singly_Linked_List sl = new Singly_Linked_List();
