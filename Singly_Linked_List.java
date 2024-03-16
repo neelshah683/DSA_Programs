@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Singly_Linked_List {
@@ -633,6 +634,105 @@ public Node oddEvenList(Node head) {
         temp.next = null;
 
         return head;
+    }
+    //Flatten LL of next &  bottom pointer ---> TC: O(N * 2M) | SC: O(N)
+    public Node flatten(Node root)
+    {
+	    if(root == null || root.next == null) return root;
+	    
+	    Node t2 = flatten(root.next);
+	    
+	    return mergeLL(root, t2);
+    }
+    public Node mergeLL(Node t1, Node t2){
+        Node dummyNode = new Node(-1);
+        Node temp = dummyNode;
+        while(t1 != null && t2 != null){
+            if(t1.data < t2.data){
+                temp.bottom = t1;
+                temp = temp.bottom;
+                temp.next = null;
+                t1 = t1.bottom;
+            }
+            else{
+                temp.bottom = t2;
+                temp = temp.bottom;
+                temp.next = null;
+                t2 = t2.bottom;
+            }
+        }
+        if(t2 == null) temp.bottom = t1;
+        else    temp.bottom = t2;
+        
+        return dummyNode.bottom;    
+        }
+        //Clone LL with Random and Next Pointer
+        public Node copyRandomList(Node head) {
+
+            //TC: O(N) | SC: O(1)
+            if(head == null) return head;
+
+            Node temp = head;
+    
+        //Inserting copy nodes in between
+            while(temp != null){
+                Node newNode = new Node(temp.val);
+                newNode.next = temp.next;
+                temp.next = newNode;
+                temp = temp.next.next;
+            }
+            temp = head;
+        //Connecting Random Pointers
+            while(temp != null){
+                if(temp.random == null)
+                    temp.next.random = null;
+                else
+                    temp.next.random = temp.random.next;
+                temp = temp.next.next;
+            }
+            temp = head;
+            //Connecting Next Pointers
+            Node dummyNode = new Node(-1);
+            Node res = dummyNode;
+            while(temp != null){
+                res.next = temp.next;
+                temp.next = temp.next.next;
+                temp = temp.next;
+                res = res.next;
+            }
+            return dummyNode.next;
+            //TC: O(N) SC: O(N)
+        // if(head == null) return null;
+
+        // HashMap<Node, Node> map = new HashMap<>();
+        // Node temp = head;
+        // Node temp2 = null;
+        // Node head2 = null;
+        // //constructing & next pts
+        // while(temp != null){
+        //     Node newNode = new Node(temp.val);
+        //     map.put(temp, newNode);
+        //     if(head2 == null){
+        //         head2 = newNode;
+        //         temp2 = newNode;
+        //     }
+        //     else{
+        //         temp2.next = newNode;
+        //         temp2 = newNode;
+        //     }
+        //     temp = temp.next;
+        // }
+
+        // if(temp == null) temp = head;
+        // Node curr = head2;
+
+        // //for random pointers
+        // while(temp != null){
+        //     curr.random = map.get(temp.random);
+        //     curr = curr.next;
+        //     temp = temp.next;
+        // }
+        // return head2;
     }
     public static void main(String[] args) {
         
