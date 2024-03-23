@@ -1,10 +1,11 @@
 package Strings;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ZAlgo {
     
     public static void main(String[] args) {
-        String s = "ababab", p ="aba";
+        String s = "aaacecaa", p ="aacecaaa";
         System.out.println(search(p,s));
     }
     public static ArrayList<Integer> search(String pat, String S)
@@ -15,7 +16,7 @@ public class ZAlgo {
         int[] Z = new int[len];
         
         getZArr(str, Z);
-        
+        System.out.println(Arrays.toString(Z));
         for(int indx = 0; indx < Z.length; indx++){
             if(Z[indx] == pat.length())
                 res.add(indx-pat.length());
@@ -42,6 +43,7 @@ public class ZAlgo {
                 if(Z[k] < R - indx + 1)
                     Z[indx] = Z[k];
                 else{
+                    L = indx;
                     while(R < n && str.charAt(R-L) == str.charAt(R))
                         R++;
                     
