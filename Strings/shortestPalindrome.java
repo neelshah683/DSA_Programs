@@ -1,5 +1,7 @@
 package Strings;
 
+import java.util.Arrays;
+
 public class shortestPalindrome {
     
     public static void main(String[] args) {
@@ -10,6 +12,7 @@ public class shortestPalindrome {
         String str = s + "#" + new StringBuilder(s).reverse().toString();
         int[] lpsArr = new int[str.length()];
         computeKMP(str, lpsArr);
+        System.out.println(Arrays.toString(lpsArr));
         return new StringBuilder(s.substring(lpsArr[str.length()-1])).reverse().toString() + s;
     }
     public static void computeKMP(String s, int[] lpsArr){
