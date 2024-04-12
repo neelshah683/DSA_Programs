@@ -1,5 +1,6 @@
 package TwoPointers_SlidingWindow;
 
+
 public class shortestSubarraywithOrAtleastK {
     
     public static void main(String[] args) {
@@ -9,17 +10,15 @@ public class shortestSubarraywithOrAtleastK {
     }
     public static int minimumSubarrayLength(int[] nums, int k) {
         int len = nums.length;
-        int left = 0;
-        int orNum = 0;
         int ans = Integer.MAX_VALUE;
-        for(int right = 0; right < len; right++){
-            orNum |= nums[right];
-            while(orNum >= k && left <= right){
-                ans = Math.min(ans, right - left + 1);
-                orNum -= nums[left];
-                left++;
+        for(int indx = 0; indx < len; indx++){
+            int orNum = 0;
+            for(int indx2 = indx; indx2 < len; indx2++){
+                orNum |= nums[indx2];
+                if(orNum >= k)
+                    ans = Math.min(ans, indx2 - indx + 1);
             }
         }
-        return ans==Integer.MAX_VALUE ? -1 : ans;
+        return ans == Integer.MAX_VALUE ? -1 : ans;
     }
 }
