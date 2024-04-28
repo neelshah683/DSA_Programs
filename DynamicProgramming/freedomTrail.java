@@ -76,6 +76,6 @@ public class freedomTrail {
             }
             prev = (int[])(curr.clone());
         }
-        return curr[0];
+        return prev[0];
     }
 }
