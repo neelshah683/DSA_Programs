@@ -767,13 +767,14 @@ public Node oddEvenList(Node head) {
         System.out.println("\nBefore Reverse:-> ");
         sl.printList();
         
-        // sl.reverseList(); --->Iterative Version
+        System.out.println("\nIterative Version:");
+        sl.reverseList(); //--->Iterative Version
         sl.printList();
 
         Node newHead = sl.reverseListRecursive(sl.head);
-        System.out.println("\nAfter Reverse:-> ");
+        // System.out.println("\nAfter Reverse:-> ");
 
-        sl.printListReverse(newHead);
+        // sl.printListReverse(newHead);
 
         System.out.println();
 
