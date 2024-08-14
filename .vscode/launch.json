@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "kthPairSmallDistance",
+            "request": "launch",
+            "mainClass": "BinarySearch.kthPairSmallDistance",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "spiralMatrix_3",
             "request": "launch",
             "mainClass": "Arrays.spiralMatrix_3",
