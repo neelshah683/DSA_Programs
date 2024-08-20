@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "stoneGame2",
+            "request": "launch",
+            "mainClass": "DynamicProgramming.stoneGame2",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "uglyNumbers2",
             "request": "launch",
             "mainClass": "DynamicProgramming.uglyNumbers2",
