@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "chandrayan3",
+            "request": "launch",
+            "mainClass": "Arrays.chandrayan3",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "stoneGame2",
             "request": "launch",
             "mainClass": "DynamicProgramming.stoneGame2",
