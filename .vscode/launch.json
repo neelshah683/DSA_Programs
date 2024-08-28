@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "stringCalcTDD_KATA",
+            "request": "launch",
+            "mainClass": "Arrays.stringCalcTDD_KATA",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "chandrayan3",
             "request": "launch",
             "mainClass": "Arrays.chandrayan3",
