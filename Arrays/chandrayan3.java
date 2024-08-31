@@ -1,7 +1,5 @@
 package Arrays;
 
-import Graph_Technique.eventualSafeStates;
-
 class generateDirection{
     int x, y, z;
     String direction = "";

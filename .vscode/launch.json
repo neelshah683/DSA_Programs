@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "modifyGraphEdgeWeights_SP",
+            "request": "launch",
+            "mainClass": "Graph_Technique.modifyGraphEdgeWeights_SP",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "stringCalcTDD_KATA",
             "request": "launch",
             "mainClass": "Arrays.stringCalcTDD_KATA",
