@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "robotSimulation",
+            "request": "launch",
+            "mainClass": "Arrays.robotSimulation",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "modifyGraphEdgeWeights_SP",
             "request": "launch",
             "mainClass": "Graph_Technique.modifyGraphEdgeWeights_SP",
