@@ -734,6 +734,7 @@ public Node oddEvenList(Node head) {
         // }
         // return head2;
     }
+    
     public static void main(String[] args) {
         
         Singly_Linked_List sl = new Singly_Linked_List();
@@ -785,5 +786,7 @@ public Node oddEvenList(Node head) {
         System.out.println("Is Palindrome: "+sl.isPalindrome(newHead));
 
         sl.oddEvenList(newHead);
+
+        sl.splitListToParts(newHead, 3);
     }
 }

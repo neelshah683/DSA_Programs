@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "selectCellsMaxScore",
+            "request": "launch",
+            "mainClass": "DynamicProgramming.BitMasking.selectCellsMaxScore",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
+            "name": "selectCellsMaxScore",
+            "request": "launch",
+            "mainClass": "DynamicProgramming.selectCellsMaxScore",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "robotSimulation",
             "request": "launch",
             "mainClass": "Arrays.robotSimulation",
