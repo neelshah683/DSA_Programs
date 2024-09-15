@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "vowelsEvenCount",
+            "request": "launch",
+            "mainClass": "DynamicProgramming.BitMasking.vowelsEvenCount",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "selectCellsMaxScore",
             "request": "launch",
             "mainClass": "DynamicProgramming.BitMasking.selectCellsMaxScore",
