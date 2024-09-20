@@ -4,10 +4,16 @@ import java.util.Arrays;
 
 public class ZAlgo {
     
+    //Z-Algorithm for pattern searching.
     public static void main(String[] args) {
         String s = "aaacecaa", p ="aacecaaa";
         System.out.println(search(p,s));
     }
+    //The Z-algorithm computes the Z-array, which stores the length of the longest substring 
+    //starting from each position that matches a prefix of the string. 
+    //This can be used for pattern matching in linear time.
+
+    //TC: O(N) SC: O(N)
     public static ArrayList<Integer> search(String pat, String S)
     {
         ArrayList<Integer> res = new ArrayList<>();

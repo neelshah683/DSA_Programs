@@ -1,5 +1,6 @@
 package Strings;
 
+import java.sql.Time;
 import java.util.ArrayList;
 
 public class KMPAlgo {
@@ -9,10 +10,14 @@ public class KMPAlgo {
         String pattern = "geek";  
         System.out.println(search(pattern, txt)); 
     }
+    //KMP (Knuth-Morris-Pratt) Algorithm for pattern searching. 
+    //It constructs a concatenated string pat + "#" + txt and then computes the LPS (Longest Prefix Suffix) array
+    // to find all occurrences of the pattern pat in the text txt.
+
+    //TC: O(N + M) SC: O(N + M)
     public static ArrayList<Integer> search(String pat, String txt)
     {
-        //TC: O(M + N) SC: O(M + N)
-        //Computing LPS -> Longest Prefix String
+        
         String str = pat + "#" + txt;
 
         int len = str.length();

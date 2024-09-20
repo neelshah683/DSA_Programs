@@ -7,6 +7,12 @@ public class rabinKarpAlgo {
         String b = "cdabcdab";
         System.out.println(repeatedStringMatch(a, b));
     }
+    //Rabin-Karp Algorithm for substring searching.
+
+    // It uses rolling hash techniques to compute and compare the hash values of substrings in hayStack with the hash value of the pattern needle. 
+    //This helps in reducing the time complexity of pattern matching by efficiently comparing strings via their hash values.
+
+    //TC: O(N) SC: O(1)
     public static long hashValue(String needle, long radix, long len){
         long ans = 0, factor = 1;
         for(long indx = len - 1; indx >= 0; indx--){
