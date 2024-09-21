@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "lexicographicalNumbers",
+            "request": "launch",
+            "mainClass": "Trie.lexicographicalNumbers",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "vowelsEvenCount",
             "request": "launch",
             "mainClass": "DynamicProgramming.BitMasking.vowelsEvenCount",
