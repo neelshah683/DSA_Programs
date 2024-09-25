@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "scorePrefixString",
+            "request": "launch",
+            "mainClass": "Trie.scorePrefixString",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "longestStrWithAllPrefixes",
             "request": "launch",
             "mainClass": "Trie.longestStrWithAllPrefixes",
