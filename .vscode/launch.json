@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "longestStrWithAllPrefixes",
+            "request": "launch",
+            "mainClass": "Trie.longestStrWithAllPrefixes",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "lexicographicalNumbers",
             "request": "launch",
             "mainClass": "Trie.lexicographicalNumbers",
