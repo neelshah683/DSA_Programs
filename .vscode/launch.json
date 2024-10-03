@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "makeSumDivisibleByP",
+            "request": "launch",
+            "mainClass": "Arrays.makeSumDivisibleByP",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
+            "name": "makeSumDivisibleByP",
+            "request": "launch",
+            "mainClass": "HashMap.makeSumDivisibleByP",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "scorePrefixString",
             "request": "launch",
             "mainClass": "Trie.scorePrefixString",
