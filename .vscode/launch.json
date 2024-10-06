@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "sentenceSimilarity3",
+            "request": "launch",
+            "mainClass": "Strings.sentenceSimilarity3",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "makeSumDivisibleByP",
             "request": "launch",
             "mainClass": "Arrays.makeSumDivisibleByP",
