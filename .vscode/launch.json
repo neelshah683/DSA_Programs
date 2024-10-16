@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "longestHappyString",
+            "request": "launch",
+            "mainClass": "Strings.longestHappyString",
+            "projectName": "DSA_3761e93a"
+        },
+        {
+            "type": "java",
             "name": "sentenceSimilarity3",
             "request": "launch",
             "mainClass": "Strings.sentenceSimilarity3",
